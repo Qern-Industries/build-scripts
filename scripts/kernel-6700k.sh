@@ -1,16 +1,16 @@
 set -x
-rm -rf work || true
-mkdir work
-cd work
+rm -rf ${BWDIR}/work || true
+mkdir ${BWDIR}/work
+cd ${BWDIR}/work
 pwd
 git clone --depth 1 https://github.com/Frogging-Family/linux-tkg
 rm ./linux-tkg/customization.cfg
-cd ..
-cp ./build-scripts/kernel/cfg/desktop-6700k.cfg ./work/linux-tkg/customization.cfg
-cd ./work/linux-tkg/
+cd ${BWDIR}
+cp ${BWDIR}/build-scripts/cfg/desktop-6700k.cfg ${BWDIR}/work/linux-tkg/customization.cfg
+cd ${BWDIR}/work/linux-tkg/
 pwd
 makepkg -s 
-cd ..
-cd ..
+cd ${BWDIR}
 pwd
-cp ./work/linux-tkg/*.pkg.tar.zst ./output/
+cp ${BWDIR}/work/linux-tkg/*.pkg.tar.zst ${BWDIR}/output/
+rm -rf ${BWDIR}/work || true
