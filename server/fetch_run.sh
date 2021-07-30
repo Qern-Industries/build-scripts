@@ -6,7 +6,10 @@ echo "Update Start"
     git pull origin master
 echo "Update Complete"
 cd ..
-rm -rf ./output/ || true
+BWDIR="$(pwd)"
+echo ${BWDIR}
+export BWDIR
+rm -rf ${BWDIR}/output/ || true
 mkdir output
 pwd
 #echo "Export Variables"
