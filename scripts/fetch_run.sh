@@ -21,3 +21,9 @@ ${BWDIR}/build-scripts/scripts/kernel-6700k.sh >> ${BWDIR}/log/6700k
 chmod +x ${BWDIR}/build-scripts/scripts/kernel-4700u.sh || true
 ${BWDIR}/build-scripts/scripts/kernel-4700u.sh >> ${BWDIR}/log/4700u
 echo "Kernel Complete"
+echo "Nvidia Start"
+cd ${BWDIR}
+chmod +x ${BWDIR}/build-scripts/scripts/nvidia.sh || true
+./${BWDIR}/build-scripts/nvidia.sh
+echo "Nvidia Complete"
+cd ${BWDIR}
