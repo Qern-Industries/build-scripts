@@ -24,6 +24,11 @@ echo "Kernel Complete"
 echo "Nvidia Start"
 cd ${BWDIR}
 chmod +x ${BWDIR}/build-scripts/scripts/nvidia.sh || true
-./${BWDIR}/build-scripts/nvidia.sh
+touch ${BWDIR}/log/nvidia || true
+./${BWDIR}/build-scripts/nvidia.sh >> ${BWDIR}/log/nvidia
 echo "Nvidia Complete"
 cd ${BWDIR}
+echo "Packages Start"
+touch ${BWDIR}/log/packages || true
+chmod +x ${BWDIR}/build-scripts/scripts/packages.sh || true
+./${BWDIR}/build-scripts/scripts/packages.sh >> ${BWDIR}/log/packages
