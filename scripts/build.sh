@@ -1,3 +1,4 @@
+set -x
 rm -rf ${BWDIR}/output/ || true
 mkdir output
 pwd
