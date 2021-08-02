@@ -1,3 +1,6 @@
+cd ${BWDIR}
+rm -rf ${BWDIR}/work || true
+mkdir ${BWDIR}/work
 cd ${BWDIR}/work
 git clone --depth 1 https://github.com/Frogging-Family/nvidia-all
 rm ${BWDIR}/work/nvidia-all/customization.cfg
