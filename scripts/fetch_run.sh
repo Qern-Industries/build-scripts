@@ -33,3 +33,4 @@ echo "Packages Start"
 touch ${BWDIR}/log/packages || true
 #chmod +x ${BWDIR}/build-scripts/scripts/packages.sh || true
 ${BWDIR}/build-scripts/scripts/packages.sh >> ${BWDIR}/log/packages
+echo "Think this works."
