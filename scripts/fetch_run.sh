@@ -25,7 +25,7 @@ echo "Nvidia Start"
 cd ${BWDIR}
 #chmod +x ${BWDIR}/build-scripts/scripts/nvidia.sh || true
 touch ${BWDIR}/log/nvidia || true
-${BWDIR}/build-scripts/nvidia.sh >> ${BWDIR}/log/nvidia
+${BWDIR}/build-scripts/scripts/nvidia.sh >> ${BWDIR}/log/nvidia
 echo "Nvidia Complete"
 cd ${BWDIR}
 cp ${BWDIR}/output/*.pkg.tar.zst ~/packages/
