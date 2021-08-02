@@ -1,3 +1,4 @@
+set -x
 cd ${BWDIR}
 rm -rf ${BWDIR}/work || true
 mkdir ${BWDIR}/work
