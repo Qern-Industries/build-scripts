@@ -16,5 +16,6 @@ cd ${BWDIR}
 cp ${BWDIR}/output/*.pkg.tar.zst ~/packages/
 echo "Packages Start"
 touch ${BWDIR}/log/packages || true
+#Packages may fail to build unless keyserver-options auto-key-retrieve is in ~/.gnupg/gpg.conf
 ${BWDIR}/build-scripts/scripts/packages.sh 2>&1 | tee -a ${BWDIR}/log/packages
 echo "Think this works."
