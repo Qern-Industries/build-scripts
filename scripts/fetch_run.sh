@@ -3,7 +3,8 @@ date
 pwd
 echo "Update Start"
     cd ..
-    git pull origin master
+    git fetch --all
+    git reset --hard origin/master
 echo "Update Complete"
 cd ..
 BWDIR="$(pwd)"
