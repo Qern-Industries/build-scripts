@@ -50,8 +50,7 @@ themix-full-git
 themix-gui-git
 perl-encode-detect
 perl-authen-pam
-suru-icon-theme-git
-LIST=(oomox
+oomox
 resvg
 paru
 discord_arch_electron
