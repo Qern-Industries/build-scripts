@@ -1,5 +1,7 @@
 set -x
 date
+touch ${BWDIR}/log/timestart || true
+date 2>&1 | tee -a ${BWDIR}/log/timestart
 pwd
 echo "Update Start"
     cd ..
