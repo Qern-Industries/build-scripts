@@ -26,5 +26,5 @@ echo "Kernel Start"
 ${BWDIR}/build-scripts/scripts/kernel.sh 2>&1 | tee -a ${BWDIR}/log/kernel
 echo "Kernel Complete"
 
-echo "Think this works."
-date
+touch ${BWDIR}/log/timeend || true
+date 2>&1 | tee -a ${BWDIR}/log/timeend
