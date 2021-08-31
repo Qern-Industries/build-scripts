@@ -1,6 +1,6 @@
 set -x
 tz="$cat ${BWDIR}/build-scripts/timezone"
-date="$TZ="${tz}" date +"%S %M %H %D""
+date="$(TZ="${tz}" date +"%S %M %H %D")"
 rm -rf ${BWDIR}/output/ || true
 mkdir ${BWDIR}/output/
 mkdir -p cd ${BWDIR}/reuse/git || true
