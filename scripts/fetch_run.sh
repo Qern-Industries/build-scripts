@@ -1,6 +1,7 @@
 set -x
 date
 tz="$cat ${BWDIR}/build-scripts/timezone"
+repo="$(cat ${BWDIR}/build-scripts/repolocation)"
 date="$(TZ="${tz}" date +"%d-%m-%Y-%S-%M-%H")"
 touch ${BWDIR}/log/${date}/timestart || true
 date 2>&1 | tee -a ${BWDIR}/log/${date}/timestart
