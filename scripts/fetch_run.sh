@@ -1,10 +1,10 @@
 set -x
 date
 BWDIR="$(pwd)"
-tz="$cat ${BWDIR}/build-scripts/timezone"
-repolocation="$(cat ${BWDIR}/build-scripts/repolocation)"
-repo="$(cat ${BWDIR}/build-scripts/repo)"
-date="$(TZ="${tz}" date +"%d-%m-%Y-%S-%M-%H")"
+tz=$(cat ${BWDIR}/build-scripts/timezone)
+repolocation=$(cat ${BWDIR}/build-scripts/repolocation)
+repo=$(cat ${BWDIR}/build-scripts/repo)
+date=$(TZ=${tz} date +"%d-%m-%Y-%S-%M-%H")
 touch ${BWDIR}/log/${date}/timestart || true
 date 2>&1 | tee -a ${BWDIR}/log/${date}/timestart
 pwd
