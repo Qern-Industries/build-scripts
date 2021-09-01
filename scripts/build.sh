@@ -1,7 +1,7 @@
 set -x
 rm -rf ${BWDIR}/output/ || true
 mkdir ${BWDIR}/output/
-mkdir -p cd ${BWDIR}/reuse/git || true
+mkdir -p ${BWDIR}/reuse/git || true
 pwd
 mkdir -p ${BWDIR}/log/${date} || true
 
