@@ -7,7 +7,7 @@ echo "Update Start"
     git reset --hard origin/master
 echo "Update Complete"
 cd ..
-BWDIR="$(pwd)"
+BWDIR=$(pwd)
 tz=$(cat ${BWDIR}/build-scripts/timezone)
 repolocation=$(cat ${BWDIR}/build-scripts/repolocation)
 repo=$(cat ${BWDIR}/build-scripts/repo)
