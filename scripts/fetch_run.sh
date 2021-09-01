@@ -15,7 +15,6 @@ date=$(TZ=${tz} date +"%d-%m-%Y-%S-%M-%H")
 touch ${BWDIR}/log/${date}/timestart || true
 date 2>&1 | tee -a ${BWDIR}/log/${date}/timestart
 echo ${BWDIR}
-export BWDIR
 mkdir -p ${BWDIR}/log/${date}/ || true
 touch ${BWDIR}/log/${date}/build || true
 ${BWDIR}/build-scripts/scripts/build.sh 2>&1 | tee -a ${BWDIR}/log/${date}/build
