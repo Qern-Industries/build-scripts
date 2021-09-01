@@ -2,6 +2,7 @@ mkdir -p ${BWDIR}/reuse/git || true
 mkdir -p ${BWDIR}/reuse/cfg/nvidia || true
 cd ${BWDIR}/reuse/git
 git clone https://github.com/Frogging-Family/nvidia-all || true
+cd ${BWDIR}/reuse/git/nvidia-all
 git fetch --all
 git reset --hard origin/master
 rm ${BWDIR}/reuse/cfg/nvidia/* || true
