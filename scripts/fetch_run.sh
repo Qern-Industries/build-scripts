@@ -1,5 +1,6 @@
 set -x
 date
+BWDIR="$(pwd)"
 tz="$cat ${BWDIR}/build-scripts/timezone"
 repolocation="$(cat ${BWDIR}/build-scripts/repolocation)"
 repo="$(cat ${BWDIR}/build-scripts/repo)"
@@ -13,7 +14,6 @@ echo "Update Start"
     git reset --hard origin/master
 echo "Update Complete"
 cd ..
-BWDIR="$(pwd)"
 echo ${BWDIR}
 export BWDIR
 mkdir -p ${BWDIR}/log/${date}/ || true
