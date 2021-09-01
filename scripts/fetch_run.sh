@@ -1,6 +1,5 @@
 #!/usr/bin/env -S bash -euET -o pipefail -O inherit_errexit
 set -x
-date
 pwd
 echo "Update Start"
     cd ..
@@ -13,8 +12,6 @@ tz=$(cat ${BWDIR}/build-scripts/timezone)
 repolocation=$(cat ${BWDIR}/build-scripts/repolocation)
 repo=$(cat ${BWDIR}/build-scripts/repo)
 date=$(TZ=${tz} date +"%d-%m-%Y-%S-%M-%H")
-touch ${BWDIR}/log/${date}/timestart || true
-date 2>&1 | tee -a ${BWDIR}/log/${date}/timestart
 echo ${BWDIR}
 mkdir -p ${BWDIR}/log/${date}/ || true
 touch ${BWDIR}/log/${date}/build || true
