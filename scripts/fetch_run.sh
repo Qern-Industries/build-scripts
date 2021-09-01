@@ -1,4 +1,5 @@
 set -x
+#!/usr/bin/env -S bash -euET -o pipefail -O inherit_errexit
 date
 pwd
 echo "Update Start"
