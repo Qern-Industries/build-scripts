@@ -6,7 +6,7 @@ sed "s|\${BWDIR}/reuse/cfg/nvidia/nvidia-5.13.cfg|\~/.config/frogminer/linux-tkg
 git pull origin || true
 rm ${BWDIR}/reuse/cfg/nvidia/* || true
 cp ${BWDIR}/build-scripts/cfg/nvidia-5.13.cfg ${BWDIR}/reuse/cfg/nvidia/
-sed "s|\~/.config/frogminer/nvidia-all.cfg|${BWDIR}/reuse/nvidia/nvidia-5.13.cfg|g" ${BWDIR}/reuse/git/nvidia-a;;/customization.cfg || true
+sed "s|\~/.config/frogminer/nvidia-all.cfg|${BWDIR}/reuse/nvidia/nvidia-5.13.cfg|g" ${BWDIR}/reuse/git/nvidia-all/customization.cfg || true
 cd ${BWDIR}/reuse/git/nvidia-all
 makepkg -s 
 cp ${BWDIR}/reuse/git/nvidia-all/*.pkg.tar.zst ${BWDIR}/output/
