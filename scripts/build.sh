@@ -30,7 +30,7 @@ date
 echo "Kernel Start"
 "${BWDIR}"/build-scripts/scripts/kernel.sh 2>&1 | tee -a "${BWDIR}"/log/"${date}"/kernel
 echo "Kernel Complete"
-repo-add "${repolocation}"/$"{repo}".db.tar.gz "${repolocation}"/*.pkg.tar.zst
+repo-add "${repolocation}"/"${repo}".db.tar.gz "${repolocation}"/*.pkg.tar.zst
 
 touch "${BWDIR}"/log/"${date}"/timeend || true
 date 2>&1 | tee -a "${BWDIR}"/log/"${date}"/timeend
