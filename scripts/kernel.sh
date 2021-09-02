@@ -1,3 +1,4 @@
+#!/usr/bin/env -S bash -euET -o pipefail -O inherit_errexit
 set -x
 cd "${BWDIR}" || exit
 touch "${BWDIR}"/log/"${date}"/6700k || true
