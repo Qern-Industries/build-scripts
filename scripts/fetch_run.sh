@@ -8,16 +8,16 @@ echo "Update Start"
 echo "Update Complete"
 cd ..
 BWDIR=$(pwd)
-tz=$(cat ${BWDIR}/build-scripts/timezone)
-repolocation=$(cat ${BWDIR}/build-scripts/repolocation)
-repo=$(cat ${BWDIR}/build-scripts/repo)
-date=$(TZ=${tz} date +"%d-%m-%Y-%S-%M-%H")
-echo ${BWDIR}
-mkdir -p ${BWDIR}/log/${date}/ || true
-touch ${BWDIR}/log/${date}/build || true
+tz=$(cat "${BWDIR}"/build-scripts/timezone)
+repolocation=$(cat "${BWDIR}"/build-scripts/repolocation)
+repo=$(cat "${BWDIR}"/build-scripts/repo)
+date=$(TZ="${tz}" date +"%d-%m-%Y-%S-%M-%H")
+echo "${BWDIR}"
+mkdir -p "${BWDIR}"/log/"${date}"/ || true
+touch "${BWDIR}"/log/"${date}"/build || true
 export BWDIR
 export date
 export repo
 export repolocation
 export tz
-${BWDIR}/build-scripts/scripts/build.sh 2>&1 | tee -a ${BWDIR}/log/${date}/build
+"${BWDIR}"/build-scripts/scripts/build.sh 2>&1 | tee -a "${BWDIR}"/log/"${date}"/build
