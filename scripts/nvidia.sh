@@ -1,3 +1,4 @@
+#!/usr/bin/env -S bash -euET -o pipefail -O inherit_errexit
 mkdir -p "${BWDIR}"/reuse/git || true
 mkdir -p "${BWDIR}"/reuse/cfg/nvidia || true
 cd "${BWDIR}"/reuse/git || exit
