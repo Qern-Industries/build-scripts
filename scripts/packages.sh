@@ -1,3 +1,4 @@
+#!/usr/bin/env -S bash -euET -o pipefail -O inherit_errexit
 set -x
 cd "${BWDIR}" || exit
 list_unsorted="$(cat "${BWDIR}"/build-scripts/list)"
