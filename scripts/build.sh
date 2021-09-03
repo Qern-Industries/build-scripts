@@ -34,3 +34,6 @@ repo-add "${repolocation}"/"${repo}".db.tar.gz "${repolocation}"/*.pkg.tar.zst
 
 touch "${BWDIR}"/log/"${date}"/timeend || true
 date 2>&1 | tee -a "${BWDIR}"/log/"${date}"/timeend
+rm -rf "${repolocation}"/log/* || true
+mkdir -p "${repolocation}"/log/"${date}" || true
+cp -r "${BWDIR}/log/"${date}"/* "${repolocation}"/log/
