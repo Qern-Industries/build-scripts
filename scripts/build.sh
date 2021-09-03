@@ -15,7 +15,6 @@ mkdir -p "${repolocation}"/log/"${date}" || true
 
 date
 cd "${BWDIR}"
-cp "${BWDIR}"/output/*.pkg.tar.zst ~/packages/
 echo "Packages Start"
 touch "${BWDIR}"/log/"${date}"/packages || true
 #Packages may fail to build unless keyserver-options auto-key-retrieve is in ~/.gnupg/gpg.conf
