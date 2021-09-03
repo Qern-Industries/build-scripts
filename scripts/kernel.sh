@@ -1,4 +1,4 @@
-#!/usr/bin/env -S bash -euET -o pipefail -O inherit_errexit
+#!/usr/bin/bash
 set -x
 cd "${BWDIR}" || exit
 touch "${BWDIR}"/log/"${date}"/6700k || true
@@ -17,13 +17,13 @@ cd "${BWDIR}"/reuse/git/linux-tkg || exit
 git fetch --all
 git reset --hard origin/master
 sed -i "s|_EXT_CONFIG_PATH=~/.config/frogminer/linux-tkg.cfg|_EXT_CONFIG_PATH=${BWDIR}/reuse/cfg/kernel/desktop-6700k.cfg|g" "${BWDIR}"/reuse/git/linux-tkg/customization.cfg || true
-makepkg -s 2>&1 | tee -a "${BWDIR}"/log/"${date}"/6700k
+makepkg -s 2>&1 | tee -a "${BWDIR}"/log/"${date}"/6700k || true
 
 cd "${BWDIR}"/reuse/git/linux-tkg || exit
 git fetch --all
 git reset --hard origin/master
 sed -i "s|_EXT_CONFIG_PATH=~/.config/frogminer/linux-tkg.cfg|_EXT_CONFIG_PATH=${BWDIR}/reuse/cfg/kernel/zenbook-14-4700u.cfg|g" "${BWDIR}"/reuse/git/linux-tkg/customization.cfg || true
-makepkg -s 2>&1 | tee -a "${BWDIR}"/log/"${date}"/4700u
+makepkg -s 2>&1 | tee -a "${BWDIR}"/log/"${date}"/4700u || true
 
 cd "${BWDIR}" || exit
 pwd
