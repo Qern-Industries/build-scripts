@@ -27,5 +27,4 @@ makepkg -s 2>&1 | tee -a "${BWDIR}"/log/"${date}"/4700u || true
 
 cd "${BWDIR}" || exit
 pwd
-cp "${BWDIR}"/reuse/git/linux-tkg/*.pkg.tar.zst "${BWDIR}"/output/
-    
+cp "${BWDIR}"/reuse/git/linux-tkg/*.pkg.tar.zst ~/packages/
