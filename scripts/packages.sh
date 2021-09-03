@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env -S bash
 set -x
 cd "${BWDIR}" || exit
 list_unsorted="$(cat "${BWDIR}"/build-scripts/list)"
