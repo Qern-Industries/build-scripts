@@ -7,6 +7,7 @@ iridium-deb
 anbox-git
 refind
 zenpower-dkms
+proton-ge-custom
 github-desktop
 aafm-git
 scrcpy
@@ -60,6 +61,9 @@ themix-gui-git
 perl-encode-detect
 perl-authen-pam
 oomox
+suru-icon-theme-git
+asus-fan-control
+python-haishoku
 resvg
 paru
 discord_arch_electron
