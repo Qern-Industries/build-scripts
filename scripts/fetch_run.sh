@@ -11,7 +11,7 @@ BWDIR=$(pwd)
 tz=$(cat "${BWDIR}"/build-scripts/timezone)
 repolocation=$(cat "${BWDIR}"/build-scripts/repolocation)
 repo=$(cat "${BWDIR}"/build-scripts/repo)
-date=$(TZ="${tz}" date +"%d-%m-%Y-%S-%M-%H")
+date=$(TZ="${tz}" date +"%d-%m-%Y-%H-%M-%S")
 echo "${BWDIR}"
 mkdir -p "${BWDIR}"/log/"${date}"/ || true
 touch "${BWDIR}"/log/"${date}"/build || true
