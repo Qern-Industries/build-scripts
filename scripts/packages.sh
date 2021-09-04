@@ -8,8 +8,8 @@ echo "$list_unsorted"
 
 exit
 
-
-
+\n
+\n
 
 #list_sorted="${list_unsorted//$'\n'/ }"
 #list="$(echo "$list_sorted")"
