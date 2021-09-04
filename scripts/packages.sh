@@ -7,7 +7,7 @@ echo "$list_unsorted"
 
 while read arg; do
     aur sync -cuT --no-view "$arg"
-done < "${BWDIR}"/build-scripts/list
+done < ""${BWDIR}"/build-scripts/list"
 
 exit
 
