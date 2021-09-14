@@ -2,8 +2,6 @@
 set -x
 export BWDIR
 export date
-export repo
-export repolocation
 export tz
 rm -rf "${BWDIR}"/output/ || true
 mkdir "${BWDIR}"/output/
