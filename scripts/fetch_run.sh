@@ -9,7 +9,6 @@ echo "Update Complete"
 cd ..
 BWDIR=$(pwd)
 tz=$(cat "${BWDIR}"/build-scripts/timezone)
-repolocation=$(cat "${BWDIR}"/build-scripts/repolocation)
 repo=$(cat "${BWDIR}"/build-scripts/repo)
 date=$(TZ="${tz}" date +"%d-%m-%Y-%H-%M-%S")
 echo "${BWDIR}"
