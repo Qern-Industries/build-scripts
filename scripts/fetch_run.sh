@@ -13,11 +13,11 @@ repolocation=$(cat "${BWDIR}"/build-scripts/repolocation)
 repo=$(cat "${BWDIR}"/build-scripts/repo)
 date=$(TZ="${tz}" date +"%d-%m-%Y-%H-%M-%S")
 echo "${BWDIR}"
-mkdir -p "${repolocation}"/log/"${date}"/ || true
-touch "${repolocation}"/log/"${date}"/build || true
+mkdir -p ~/packages/log/"${date}"/ || true
+touch ~/packages/log/"${date}"/build || true
 export BWDIR
 export date
 export repo
 export repolocation
 export tz
-"${BWDIR}"/build-scripts/scripts/build.sh 2>&1 | tee -a "${repolocation}"/log/"${date}"/build
+"${BWDIR}"/build-scripts/scripts/build.sh 2>&1 | tee -a ~/packages/log/"${date}"/build
