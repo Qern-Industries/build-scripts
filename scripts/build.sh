@@ -8,7 +8,6 @@ mkdir "${BWDIR}"/output/
 mkdir -p "${BWDIR}"/reuse/git || true
 pwd
 mkdir -p ~/packages/log/"${date}" || true
-rm -rf ~/packages/log/* || true
 mkdir -p ~/packages/log/"${date}" || true
 
 date
