@@ -7,4 +7,4 @@ cronmonth=$(date +"%m")
 cronday=$(date +"%d")
 crontime=$(date +"%H-%M-%S")
 mkdir -p ~/packages/cronlog/ || true
-./fetch_run.sh 2>&1 | tee -a ~/packages/cronlog/"${cronyear}/${cronmonth}/${cronday}/${crontime}"
+./fetch_run.sh 2>&1 | tee -a ~/packages/cronlog/"${cronyear}/${cronmonth}/${cronday}/${crontime}"/cronlog
