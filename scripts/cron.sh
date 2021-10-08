@@ -1,4 +1,3 @@
-
 #!/usr/bin/env -S bash -euET -o pipefail -O inherit_errexit
 #0 5 * * * cd /home/eile/build/build-scripts/scripts/ && ./cron.sh
 #crondate=$(date +"%d-%m-%Y-%H-%M-%S")
