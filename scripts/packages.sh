@@ -2,5 +2,5 @@
 set -x
 cd "${BWDIR}" || exit
 while read -r arg; do
-    date; time aur sync -cuT --no-view "$arg" || true
+    date; time aur sync -cuT --no-view --margs --skipinteg "$arg" || true
 done < "${BWDIR}/build-scripts/list"
