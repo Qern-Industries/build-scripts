@@ -1,14 +1,6 @@
 #!/usr/bin/env -S bash -euET -o pipefail -O inherit_errexit
 set -x
-year=$(date +"%Y")
-month=$(date +"%m")
-day=$(date +"%d")
-time=$(date +"%H-%M-%S")
 export BWDIR
-export year
-export month
-export day
-export time
 export tz
 rm -rf "${BWDIR}"/output/ || true
 mkdir "${BWDIR}"/output/
