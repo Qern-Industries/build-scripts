@@ -1,9 +1,13 @@
 #!/usr/bin/env -S bash -euET -o pipefail -O inherit_errexit
 #0 5 * * * cd /home/eile/build/build-scripts/scripts/ && ./cron.sh
 #crondate=$(date +"%d-%m-%Y-%H-%M-%S")
-cronyear=$(date +"%Y")
-cronmonth=$(date +"%m")
-cronday=$(date +"%d")
-crontime=$(date +"%H-%M-%S")
+year=$(date +"%Y")
+month=$(date +"%m")
+day=$(date +"%d")
+time=$(date +"%H-%M-%S")
+export year
+export month
+export day
+export time
 mkdir -p ~/packages/cronlog/ || true
-./fetch_run.sh 2>&1 | tee -a ~/packages/cronlog/"${cronyear}/${cronmonth}/${cronday}/${crontime}"/cronlog
+./fetch_run.sh 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/cronlog
