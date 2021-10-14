@@ -9,7 +9,7 @@ echo "Update Complete"
 cd ..
 BWDIR=$(pwd)
 tz=$(cat "${BWDIR}"/build-scripts/timezone)
-date=$(TZ="${tz}" date +"%d-%m-%Y-%H-%M-%S")
+date=$(TZ=US/New_York date +"%d-%m-%Y-%H-%M-%S")
 echo "${BWDIR}"
 mkdir -p ~/packages/cronlog/"${year}/${month}/${day}/${time}"/ || true
 touch ~/packages/cronlog/"${year}/${month}/${day}/${time}"/build || true
