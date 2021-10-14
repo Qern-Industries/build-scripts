@@ -4,6 +4,7 @@ goverlay-bin
 pacman-git
 pamac-aur
 iridium-deb
+aurutils
 anbox-git
 refind
 zenpower-dkms
