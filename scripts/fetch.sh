@@ -1,19 +1,20 @@
-#!/usr/bin/env -S bash -euET -o pipefail -O inherit_errexit
+#!/usr/bin/bash
 set -x
+
+year=$(date +"%Y")
+month=$(date +"%m")
+day=$(date +"%d")
+time=$(date +"%H-%M-%S")
+date=$(TZ=US/New_York date +"%d-%m-%Y-%H-%M-%S")
+
 pwd
 echo "Update Start"
     cd ..
     git fetch --all
     git reset --hard origin/master
 echo "Update Complete"
-cd ..
-BWDIR=$(pwd)
-tz=$(cat "${BWDIR}"/build-scripts/timezone)
-date=$(TZ=US/New_York date +"%d-%m-%Y-%H-%M-%S")
-echo "${BWDIR}"
+
 mkdir -p ~/packages/cronlog/"${year}/${month}/${day}/${time}"/ || true
-touch ~/packages/cronlog/"${year}/${month}/${day}/${time}"/build || true
-export BWDIR
-export date
-export tz
-"${BWDIR}"/build-scripts/scripts/build.sh 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/build
+touch ~/packages/cronlog/"${year}/${month}/${day}/${time}"/log || true
+
+"${BWDIR}"/build-scripts/scripts/run.sh 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/log
