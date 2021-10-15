@@ -9,7 +9,6 @@ date=$(TZ=US/New_York date +"%d-%m-%Y-%H-%M-%S")
 
 pwd
 echo "Update Start"
-    cd ..
     git fetch --all
     git reset --hard origin/master
 echo "Update Complete"
