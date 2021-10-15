@@ -17,4 +17,4 @@ echo "Update Complete"
 mkdir -p ~/packages/cronlog/"${year}/${month}/${day}/${time}"/ || true
 touch ~/packages/cronlog/"${year}/${month}/${day}/${time}"/log || true
 
-"${BWDIR}"/build-scripts/scripts/run.sh 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/log
+./run.sh 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/log
