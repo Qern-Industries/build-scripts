@@ -18,4 +18,4 @@ echo "${BWDIR}"
 
 mkdir -p ~/packages/cronlog/"${year}/${month}/${day}/${time}" || true
 touch ~/packages/cronlog/"${year}/${month}/${day}/${time}"/build
-./build.sh 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/build
+"${BWDIR}"/build-scripts/scripts/build.sh 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/build
