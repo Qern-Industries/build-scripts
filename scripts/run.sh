@@ -13,6 +13,7 @@ export day
 export time
 
 cd ..
+cd ..
 BWDIR=$(pwd)
 echo "${BWDIR}"
 
