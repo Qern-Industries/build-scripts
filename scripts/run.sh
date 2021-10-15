@@ -16,6 +16,7 @@ cd ..
 cd ..
 BWDIR=$(pwd)
 echo "${BWDIR}"
+export BWDIR
 
 mkdir -p ~/packages/cronlog/"${year}/${month}/${day}/${time}" || true
 touch ~/packages/cronlog/"${year}/${month}/${day}/${time}"/build
