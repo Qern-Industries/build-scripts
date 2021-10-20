@@ -27,7 +27,7 @@ bitwarden
 rpi-imager
 gwe
 protontricks
-legendary
+legendary -f
 iridium-deb
 haskell-brittany
 timeshift
