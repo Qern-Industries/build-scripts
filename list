@@ -10,6 +10,7 @@ aurutils
 anbox-git
 refind
 zenpower-dkms
+firefox-kde-opensuse-rpm
 firefox-kde-opensuse --margs -d
 proton-ge-custom
 github-desktop
