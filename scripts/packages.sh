@@ -7,6 +7,7 @@ while read -r arg; do
     date; time aur fetch -r --sync=reset $arg || true
 done < "${BWDIR}/build-scripts/list"
 while read -r arg; do
+    cd ~/packages/git/$"{arg}"
     date; time aur build --no-sync --margs -n,-s,--clean $arg || true
 done < "${BWDIR}/build-scripts/list"
 cd "${BWDIR}"
