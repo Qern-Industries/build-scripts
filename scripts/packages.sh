@@ -1,5 +1,6 @@
 #!/usr/bin/env -S bash
 set -x
+mkdir -p "${BWDIR}/build"
 cd "${BWDIR}/build" || exit
 while read -r arg; do
     mkdir -p ~/packages/git/ || true
