@@ -1,6 +1,6 @@
 #!/usr/bin/env -S bash
 set -x
-cd "${BWDIR}" || exit
+cd "${BWDIR}/build" || exit
 while read -r arg; do
     mkdir -p ~/packages/git/ || true
     cd ~/packages/git/ || true
@@ -9,3 +9,4 @@ done < "${BWDIR}/build-scripts/list"
 while read -r arg; do
     date; time aur build --no-sync --margs -n,-s,--clean $arg || true
 done < "${BWDIR}/build-scripts/list"
+cd "${BWDIR}"
