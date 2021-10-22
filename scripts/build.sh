@@ -27,7 +27,7 @@ date
 echo "Kernel Start"
 "${BWDIR}"/build-scripts/scripts/kernel.sh 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/kernel
 echo "Kernel Complete"
-eval repo-add ~/packages/qern-packs.db.tar.gz ~/packages/*.pkg.tar.zst
+eval repo-add -n ~/packages/qern-packs.db.tar.gz ~/packages/*.pkg.tar.zst
 
 touch ~/packages/cronlog/"${year}/${month}/${day}/${time}"/timeend || true
 date 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/timeend
