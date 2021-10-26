@@ -37,8 +37,7 @@ bitwarden
 rpi-imager
 gwe
 protontricks
-legendary-f
-iridium-deb
+legendary -f
 haskell-brittany
 timeshift
 android-sdk-platform-tools
