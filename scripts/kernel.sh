@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 set -x
 cd "${BWDIR}" || exit
+rm -rf "${BWDIR}"/reuse/git/linux-tkg/*.pkg.tar.zst
 touch ~/packages/cronlog/"${year}/${month}/${day}/${time}"/6700k || true
 touch ~/packages/cronlog/"${year}/${month}/${day}/${time}"/4700u || true
 mkdir -p "${BWDIR}"/reuse/git || true
