@@ -18,13 +18,13 @@ cd "${BWDIR}"/reuse/git/linux-tkg || exit
 git fetch --all
 git reset --hard origin/master
 sed -i "s|_EXT_CONFIG_PATH=~/.config/frogminer/linux-tkg.cfg|_EXT_CONFIG_PATH=${BWDIR}/reuse/cfg/kernel/desktop-6700k.cfg|g" "${BWDIR}"/reuse/git/linux-tkg/customization.cfg || true
-makepkg -sCc 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/6700k || true
+makepkg -sfCc 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/6700k || true
 
 cd "${BWDIR}"/reuse/git/linux-tkg || exit
 git fetch --all
 git reset --hard origin/master
 sed -i "s|_EXT_CONFIG_PATH=~/.config/frogminer/linux-tkg.cfg|_EXT_CONFIG_PATH=${BWDIR}/reuse/cfg/kernel/zenbook-14-4700u.cfg|g" "${BWDIR}"/reuse/git/linux-tkg/customization.cfg || true
-makepkg -sCc 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/4700u || true
+makepkg -sfCc 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/4700u || true
 
 cd "${BWDIR}" || exit
 pwd
