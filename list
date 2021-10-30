@@ -15,7 +15,6 @@ goverlay-bin
 pacman-git
 pamac-aur
 lorem-ipsum-generator
-iridium-deb
 aurutils
 anbox-git
 refind
@@ -37,7 +36,7 @@ bitwarden
 rpi-imager
 gwe
 protontricks
-legendary -f
+legendary
 haskell-brittany
 timeshift
 android-sdk-platform-tools
