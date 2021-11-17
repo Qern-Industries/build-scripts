@@ -3,7 +3,6 @@ anbox-git
 android-sdk-platform-tools
 arc-gtk-theme-git
 asus-fan-control
-asus-fan-control
 aurutils
 authy
 bitwarden
@@ -55,7 +54,6 @@ pygtk
 python-colorthief
 python-gettext
 python-haishoku
-python-haishoku
 python2-gobject2
 rapl-read-ryzen-git
 refind
@@ -83,8 +81,6 @@ themix-icons-gnome-colors-git
 themix-icons-numix-git
 themix-icons-papirus-git
 themix-icons-suru-plus-aspromauros-git
-themix-icons-suru-plus-aspromauros-git
-themix-icons-suru-plus-git
 themix-icons-suru-plus-git
 themix-import-images-git
 themix-plugin-base16-git
@@ -101,11 +97,11 @@ ttf-iosevka
 vscodium
 webmin
 winbox
+xorgxrdp
+xrdp
 yadm
 yaru
 zenmonitor
-zenmonitor
 zenmonitor3-git
 zenpower-dkms
-zenstates-git
 zenstates-git
