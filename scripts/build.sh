@@ -8,6 +8,7 @@ mkdir -p "${BWDIR}"/reuse/git || true
 pwd
 mkdir -p ~/packages/cronlog/"${year}/${month}/${day}/${time}" || true
 mkdir -p ~/packages/cronlog/"${year}/${month}/${day}/${time}" || true
+sudo pacman -Sy
 
 date
 cd "${BWDIR}"
