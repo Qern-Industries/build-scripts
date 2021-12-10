@@ -12,4 +12,5 @@ sed -i "s|_EXT_CONFIG_PATH=~/.config/frogminer/nvidia-all.cfg|_EXT_CONFIG_PATH=$
 cd "${BWDIR}"/reuse/git/nvidia-all || exit
 makepkg -sCc || true
 cp "${BWDIR}"/reuse/git/nvidia-all/*.pkg.tar.zst ~/packages/
+cp "${BWDIR}"/reuse/git/nvidia-all/*.pkg.tar.zst.sig ~/packages/
 
