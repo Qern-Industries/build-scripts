@@ -29,4 +29,4 @@ makepkg -sfCc 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"
 cd "${BWDIR}" || exit
 pwd
 cp "${BWDIR}"/reuse/git/linux-tkg/*.pkg.tar.zst ~/packages/
-cp "${BWDIR}"/reuse/git/linux-tkg/*.pkg.tar.zst.sig ~/packages/
+
