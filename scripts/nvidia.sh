@@ -11,7 +11,7 @@ cp "${BWDIR}"/build-scripts/cfg/nvidia.cfg "${BWDIR}"/reuse/cfg/nvidia/
 sed -i "s|_EXT_CONFIG_PATH=~/.config/frogminer/nvidia-all.cfg|_EXT_CONFIG_PATH=${BWDIR}/reuse/cfg/nvidia/nvidia.cfg|g" "${BWDIR}"/reuse/git/nvidia-all/customization.cfg || true
 cd "${BWDIR}"/reuse/git/nvidia-all || exit
 bash ~/cache-gpg.sh
-makepkg -sfCc --sign || true
+makepkg -sCc || true
 cp "${BWDIR}"/reuse/git/nvidia-all/*.pkg.tar.zst ~/packages/
 cp "${BWDIR}"/reuse/git/nvidia-all/*.pkg.tar.zst.sig ~/packages/
 
