@@ -13,5 +13,4 @@ cd "${BWDIR}"/reuse/git/nvidia-all || exit
 bash ~/cache-gpg.sh
 makepkg -sCc || true
 cp "${BWDIR}"/reuse/git/nvidia-all/*.pkg.tar.zst ~/packages/
-cp "${BWDIR}"/reuse/git/nvidia-all/*.pkg.tar.zst.sig ~/packages/
 
