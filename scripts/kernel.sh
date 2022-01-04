@@ -14,6 +14,7 @@ rm "${BWDIR}"/reuse/cfg/kernel/* || true
 cp "${BWDIR}"/build-scripts/cfg/zenbook-14-4700u.cfg "${BWDIR}"/reuse/cfg/kernel/
 cp "${BWDIR}"/build-scripts/cfg/desktop-6700k.cfg "${BWDIR}"/reuse/cfg/kernel/
 
+sudo pacman -S --noconfirm --needed schedtool || true
 cd "${BWDIR}"/reuse/git/linux-tkg || exit
 git fetch --all
 git reset --hard origin/master
