@@ -1,2 +1,2 @@
 #/bin/bash
-sudo cp /var/lib/machines/our-runner/home/eile/packages/* -R /var/www/html
+sudo cp -R /var/lib/machines/our-runner/home/eile/packages/* /var/www/html
