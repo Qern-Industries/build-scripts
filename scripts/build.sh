@@ -3,11 +3,10 @@ set -x
 export BWDIR
 export tz
 rm -rf "${BWDIR}"/output/ || true
-mkdir "${BWDIR}"/output/
+mkdir "${BWDIR}"/output/ || exit
 mkdir -p "${BWDIR}"/reuse/git || true
 pwd
-mkdir -p ~/packages/cronlog/"${year}/${month}/${day}/${time}" || true
-mkdir -p ~/packages/cronlog/"${year}/${month}/${day}/${time}" || true
+mkdir -p ~/packages/cronlog/"${year}/${month}/${day}/${time}" || exit
 sudo pacman -Sy
 
 date
