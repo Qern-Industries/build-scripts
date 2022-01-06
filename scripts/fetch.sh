@@ -9,11 +9,11 @@ date=$(TZ=US/New_York date +"%d-%m-%Y-%H-%M-%S")
 
 pwd
 echo "Update Start"
-    git fetch --all
-    git reset --hard origin/master
+    git fetch --all || exit
+    git reset --hard origin/master || exit
 echo "Update Complete"
 
 mkdir -p ~/packages/cronlog/"${year}/${month}/${day}/${time}"/ || true
 touch ~/packages/cronlog/"${year}/${month}/${day}/${time}"/log || true
 
-./run.sh 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/log
+./run.sh 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/log || exit
