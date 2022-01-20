@@ -49,6 +49,10 @@ perl-encode-detect
 perl-linux-desktopfiles
 plasma5-applets-eventcalendar
 plymouth
+plymouth-themes-adi1090x-pack1-git
+plymouth-themes-adi1090x-pack2-git
+plymouth-themes-adi1090x-pack3-git
+plymouth-themes-adi1090x-pack4-git
 proton-ge-custom
 protontricks
 pygtk
