@@ -2,7 +2,6 @@ aacskeys
 aafm-git
 anbox-git
 android-sdk-platform-tools
-tilp-git
 asus-fan-control
 aurutils
 authy
@@ -20,8 +19,8 @@ humanity-icon-theme
 legendary
 lib32-mangohud
 lib32-mangohud-git
-libcpufeatures-git
 lib32-mangohud-opengl2
+libcpufeatures-git
 libgksu
 loksh-git
 lorem-ipsum-generator
@@ -40,8 +39,8 @@ openbox-arc-git
 openbox-patched
 opensnap
 oranchelo-icon-theme
-pacroller
 pacman-git
+pacroller
 pacvis-git
 pamac-aur
 paru
@@ -88,6 +87,7 @@ themix-import-images-git
 themix-plugin-base16-git
 themix-theme-materia-git
 themix-theme-oomox-git
+tilp-git
 timeshift
 tlp-git
 tlp-rdw-git
