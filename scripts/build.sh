@@ -1,12 +1,16 @@
 #!/usr/bin/env -S bash -euET -o pipefail -O inherit_errexit
+
 set -x
+
 export BWDIR
 export tz
+
 rm -rf "${BWDIR}"/output/ || true
 mkdir "${BWDIR}"/output/ || exit
 mkdir -p "${BWDIR}"/reuse/git || true
 pwd
 mkdir -p ~/packages/cronlog/"${year}/${month}/${day}/${time}" || exit
+
 sudo pacman -Sy
 
 date
@@ -27,6 +31,18 @@ date
 echo "Kernel Start"
 "${BWDIR}"/build-scripts/scripts/kernel.sh 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/kernel
 echo "Kernel Complete"
+eval repo-add -n ~/packages/qern-packs.db.tar.gz ~/packages/*.pkg.tar.zst
+
+date
+echo "Wine Start"
+"${BWDIR}"/build-scripts/scripts/wine.sh 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/wine
+echo "Wine Complete"
+eval repo-add -n ~/packages/qern-packs.db.tar.gz ~/packages/*.pkg.tar.zst
+
+date
+echo "Proton Start"
+"${BWDIR}"/build-scripts/scripts/proton.sh 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/proton
+echo "Proton Complete"
 eval repo-add -n ~/packages/qern-packs.db.tar.gz ~/packages/*.pkg.tar.zst
 
 touch ~/packages/cronlog/"${year}/${month}/${day}/${time}"/timeend || true
