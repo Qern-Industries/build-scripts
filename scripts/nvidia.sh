@@ -12,7 +12,7 @@ git fetch --all
 git reset --hard origin/master
 rm "${BWDIR}"/reuse/cfg/nvidia/* || true
 
-cp "${BWDIR}"/build-scripts/cfg/nvidia.cfg "${BWDIR}"/reuse/cfg/nvidia/
+cp "${BWDIR}"/build-scripts/cfg/nvidia-tkg/nvidia.cfg "${BWDIR}"/reuse/cfg/nvidia/
 sed -i "s|_EXT_CONFIG_PATH=~/.config/frogminer/nvidia-all.cfg|_EXT_CONFIG_PATH=${BWDIR}/reuse/cfg/nvidia/nvidia.cfg|g" "${BWDIR}"/reuse/git/nvidia-all/customization.cfg || true
 
 cd "${BWDIR}"/reuse/git/nvidia-all || exit
