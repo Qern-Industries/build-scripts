@@ -1,4 +1,6 @@
 #!/usr/bin/bash
+set -x
+
 
 mkdir -p "${BWDIR}"/reuse/git || true
 mkdir -p "${BWDIR}"/reuse/cfg/nvidia || true
