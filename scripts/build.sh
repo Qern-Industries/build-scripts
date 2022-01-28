@@ -29,7 +29,7 @@ echo "Nvidia Complete"
 
 date
 echo "Kernel Start"
-"${BWDIR}"/build-scripts/scripts/kernel.sh 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/kernel
+"${BWDIR}"/build-scripts/scripts/kernel.sh 2>&1 | tee -a ~/packages/cronlog/"${year}/${month}/${day}/${time}"/linux-tkg/l
 echo "Kernel Complete"
 eval repo-add -n ~/packages/qern-packs.db.tar.gz ~/packages/*.pkg.tar.zst
 
