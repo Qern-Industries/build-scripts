@@ -18,12 +18,12 @@ time "${BWDIR}"/build-scripts/scripts/nvidia-tkg.sh 2>&1 | tee -a ~/packages/cro
 echo "Nvidia Complete"
 eval repo-add -n ~/packages/qern-packs.db.tar.gz ~/packages/*.pkg.tar.zst
 
-#echo "Kernel Start"
-#cd "${BWDIR}"
-#mkdir -p ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/linux-tkg/
-#time "${BWDIR}"/build-scripts/scripts/linux-tkg.sh 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/linux-tkg/linux-tkg
-#echo "Kernel Complete"
-#eval repo-add -n ~/packages/qern-packs.db.tar.gz ~/packages/*.pkg.tar.zst
+echo "Kernel Start"
+cd "${BWDIR}"
+mkdir -p ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/linux-tkg/
+time "${BWDIR}"/build-scripts/scripts/linux-tkg.sh 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/linux-tkg/linux-tkg
+echo "Kernel Complete"
+eval repo-add -n ~/packages/qern-packs.db.tar.gz ~/packages/*.pkg.tar.zst
 
 echo "Wine Start"
 cd "${BWDIR}"
@@ -36,6 +36,8 @@ cd "${BWDIR}"
 time "${BWDIR}"/build-scripts/scripts/proton-tkg.sh 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/proton-tkg
 echo "Proton Complete"
 eval repo-add -n ~/packages/qern-packs.db.tar.gz ~/packages/*.pkg.tar.zst
+
+ccache -sv
 
 touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/timeend || true
 date 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/timeend
