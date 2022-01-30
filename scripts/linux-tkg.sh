@@ -31,6 +31,13 @@ git reset --hard origin/master
 sed -i "s|_EXT_CONFIG_PATH=~/.config/frogminer/linux-tkg.cfg|_EXT_CONFIG_PATH=${BWDIR}/reuse/cfg/linux-tkg/laptop-4700u.cfg|g" "${BWDIR}"/reuse/git/linux-tkg/customization.cfg || true
 makepkg -sfCc --noconfirm 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/linux-tkg/laptop-4700u || exit
 
+cd "${BWDIR}"/reuse/git/linux-tkg || exit
+git fetch --all
+git reset --hard origin/master
+sed -i "s|_EXT_CONFIG_PATH=~/.config/frogminer/linux-tkg.cfg|_EXT_CONFIG_PATH=${BWDIR}/reuse/cfg/linux-tkg/desktop-3600.cfg|g" "${BWDIR}"/reuse/git/linux-tkg/customization.cfg || true
+makepkg -sfCc --noconfirm 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/linux-tkg/desktop-3600 || exit
+
+
 cd "${BWDIR}" || exit
 
 cp "${BWDIR}"/reuse/git/linux-tkg/*.pkg.tar.zst ~/packages/
