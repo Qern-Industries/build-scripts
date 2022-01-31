@@ -24,6 +24,7 @@ _NOINITIALPROMPT="true"
 export _NOINITIALPROMPT
 echo $_NOINITIALPROMPT
 [ "$_NOINITIALPROMPT" = "true" ]; echo $?
+touch "${BWDIR}"/reuse/git/wine-tkg-git/wine-tkg-git/BIG_UGLY_FROGMINER
 
 git fetch --all
 git reset --hard origin/master
