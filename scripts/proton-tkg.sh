@@ -2,8 +2,9 @@
 set -x
 cd "${BWDIR}" || exit
 
-touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/proton-tkg/desktop-6700k || true
-touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/proton-tkg/laptop-4700u || true
+mkdir -p ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/wine-tkg-git/
+touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/proton-tkg/skylake || true
+touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/proton-tkg/zen2 || true
 
 mkdir -p "${BWDIR}"/reuse/git || true
 mkdir -p "${BWDIR}"/reuse/cfg/proton-tkg || true
@@ -19,23 +20,25 @@ cd "${BWDIR}"/reuse/git/wine-tkg-git || exit
 git fetch --all
 git reset --hard origin/master
 
-export _NOINITIALPROMPT=true
+_NOINITIALPROMPT="true"
+export _NOINITIALPROMPT
+touch "${BWDIR}"/reuse/git/wine-tkg-git/wine-tkg-git/BIG_UGLY_FROGMINER
 
 git fetch --all
 git reset --hard origin/master
 rm -rf "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/proton-tkg.cfg
 cp "${BWDIR}"/build-scripts/cfg/proton-tkg/proton.cfg "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/proton-tkg.cfg
 rm -rf "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/proton-tkg-profiles/advanced-customization.cfg 
-cp "${BWDIR}"/build-scripts/cfg/proton-tkg/proton-advanced-6700k.cfg "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/proton-tkg-profiles/advanced-customization.cfg 
-makepkg -sfCc --noconfirm 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/proton-tkg/desktop-6700k || exit
+cp "${BWDIR}"/build-scripts/cfg/proton-tkg/proton-advanced-skylake.cfg "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/proton-tkg-profiles/advanced-customization.cfg 
+makepkg -sfCc --noconfirm 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/proton-tkg/skylake || exit
 
 git fetch --all
 git reset --hard origin/master
 rm -rf "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/proton-tkg.cfg
 cp "${BWDIR}"/reuse/cfg/proton-tkg/proton.cfg "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/proton-tkg.cfg
 rm -rf "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/proton-tkg-profiles/advanced-customization.cfg 
-cp "${BWDIR}"/build-scripts/cfg/proton-tkg/proton-advanced-4700u.cfg "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/proton-tkg-profiles/advanced-customization.cfg 
-makepkg -sfCc --noconfirm 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/proton-tkg/laptop-4700u || exit
+cp "${BWDIR}"/build-scripts/cfg/proton-tkg/proton-advanced-zen2.cfg "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/proton-tkg-profiles/advanced-customization.cfg 
+makepkg -sfCc --noconfirm 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/proton-tkg/zen2 || exit
 
 cd "${BWDIR}" || exit
 
