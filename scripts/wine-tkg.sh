@@ -23,6 +23,7 @@ git reset --hard origin/master
 _NOINITIALPROMPT="true"
 export _NOINITIALPROMPT
 echo $_NOINITIALPROMPT
+[ "$_NOINITIALPROMPT" = "true" ]; echo $?
 
 git fetch --all
 git reset --hard origin/master
