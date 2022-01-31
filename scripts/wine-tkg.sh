@@ -20,7 +20,9 @@ cd "${BWDIR}"/reuse/git/wine-tkg-git || exit
 git fetch --all
 git reset --hard origin/master
 
-export _NOINITIALPROMPT=true
+_NOINITIALPROMPT=true
+export _NOINITIALPROMPT
+echo $_NOINITIALPROMPT
 
 git fetch --all
 git reset --hard origin/master
