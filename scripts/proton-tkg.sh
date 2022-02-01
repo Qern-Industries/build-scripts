@@ -42,7 +42,7 @@ git fetch --all
 git reset --hard origin/master
 cd "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/ || exit
 rm -rf "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/proton-tkg.cfg
-cp "${BWDIR}"/reuse/cfg/proton-tkg/proton.cfg "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/proton-tkg.cfg
+cp "${BWDIR}"/build-scripts/cfg/proton-tkg/proton.cfg "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/proton-tkg.cfg
 rm -rf "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/proton-tkg-profiles/advanced-customization.cfg 
 cp "${BWDIR}"/build-scripts/cfg/proton-tkg/proton-advanced-zen2.cfg "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/proton-tkg-profiles/advanced-customization.cfg 
 touch "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/BIG_UGLY_FROGMINER
