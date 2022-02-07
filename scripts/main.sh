@@ -36,8 +36,8 @@ echo "Wine Complete"
 
 echo "Proton Start"
 cd "${BWDIR}"
-#mkdir -p ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/proton-tkg/
-time "${BWDIR}"/build-scripts/scripts/proton-tkg.sh 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/proton-tkg/proton-tkg
+mkdir -p ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/proton-tkg/
+#time "${BWDIR}"/build-scripts/scripts/proton-tkg.sh 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/proton-tkg/proton-tkg
 echo "Proton Complete"
 #eval repo-add -n ~/packages/qern-packs.db.tar.gz ~/packages/*.pkg.tar.zst
 
