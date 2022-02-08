@@ -5,18 +5,18 @@ set -x
 cd ..
 BWDIR=$(pwd)
 export BWDIR
-./reuse/export-essential.sh
+bash "${BWDIR}"/build-scripts/reuse/export-essential.sh
 
 while IFS= read -r _qi_build_arg; do
     export "$_qi_build_arg"
-    if [[ $(cat ./switches/${_qi_act_script} > /dev/null; echo $?) = 1 ]]; then
+    if [[ $(cat "${BWDIR}"/build-scripts/switches/${_qi_act_script} > /dev/null; echo $?) = 1 ]]; then
        echo "Switch for ${_qi_act_script} not found, not running.
-    elif [[ $(cat ./switches/${_qi_act_script} > /dev/null; echo $?) = 0 ]]; then
-         if [[ $(cat ./switches/${_qi_act_script}) = 1 ]]; then
+    elif [[ $(cat "${BWDIR}"/build-scripts/switches/${_qi_act_script} > /dev/null; echo $?) = 0 ]]; then
+         if [[ $(cat "${BWDIR}"/build-scripts/switches/${_qi_act_script}) = 1 ]]; then
               echo "Switch for ${_qi_act_script} disabled, not running."
-         elif [[ $(cat ./switches/${_qi_act_script}) = 1 ]]; then 
+         elif [[ $(cat "${BWDIR}"/build-scripts/switches/${_qi_act_script}) = 1 ]]; then 
               echo "Switch for ${_qi_act_script} enabled, running."
-               ./reuse/pre-template.sh
+               "${BWDIR}"/build-scripts/reuse/pre-template.sh
          else
               echo "Unexpected condition, exiting."
               exit
