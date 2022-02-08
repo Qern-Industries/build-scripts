@@ -12,7 +12,7 @@ while IFS= read -r _qi_build_arg; do
     if [[ $(cat "${BWDIR}/build-scripts/switches/${_qi_act_script}" > /dev/null; echo $?) = 1 ]]; then
        echo "Switch for ${_qi_act_script} not found, not running."
     elif [[ $(cat "${BWDIR}/build-scripts/switches/${_qi_act_script}" > /dev/null; echo $?) = 0 ]]; then
-         if [[ $(cat "${BWDIR}/build-scripts/switches/${_qi_act_script}") = 1 ]]; then
+         if [[ $(cat "${BWDIR}/build-scripts/switches/${_qi_act_script}") = 0 ]]; then
               echo "Switch for ${_qi_act_script} disabled, not running."
          elif [[ $(cat "${BWDIR}/build-scripts/switches/${_qi_act_script}") = 1 ]]; then 
               echo "Switch for ${_qi_act_script} enabled, running."
