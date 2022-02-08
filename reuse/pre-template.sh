@@ -1,7 +1,5 @@
 #!/usr/bin/bash
 
-set -x
-
 echo "${_qi_act_fancy} Start"
 cd "${BWDIR}"
 mkdir -p ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/${_qi_act_script}/"

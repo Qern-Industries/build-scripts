@@ -1,8 +1,5 @@
 #!/usr/bin/bash
 
-set -x
-
-
 _qi_build_year=$(TZ=US/New_York date +"%Y")
 _qi_build_month=$(TZ=US/New_York date +"%m")
 _qi_build_day=$(TZ=US/New_York date +"%d")
