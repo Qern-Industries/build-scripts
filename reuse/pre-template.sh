@@ -5,4 +5,9 @@ cd "${BWDIR}"
 mkdir -p ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/${_qi_act_script}/"
 time "${BWDIR}"/build-scripts/scripts/${_qi_act_script}.sh 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/${_qi_act_script}/${_qi_act_script}" || exit
 echo "${_qi_act_fancy} Complete"
-eval repo-add -n ~/packages/qern-packs.db.tar.gz ~/packages/*.pkg.tar.zst
+
+if [[ "${_qi_act_script}" = qern-packages ]]; then
+  echo "$_qern_act_fancy} detected. Not repo-adding."
+else
+  eval repo-add -n ~/packages/qern-packs.db.tar.gz ~/packages/*.pkg.tar.zst
+fi
