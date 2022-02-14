@@ -2,8 +2,8 @@
 
 cd "${BWDIR}" || exit
 
-touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/wine-tkg-git/skylake || true
-touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/wine-tkg-git/zen2 || true
+touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/wine-tkg/skylake || true
+touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/wine-tkg/zen2 || true
 
 mkdir -p "${BWDIR}"/reuse/git || true
 mkdir -p "${BWDIR}"/reuse/cfg/wine-tkg-git || true
