@@ -45,7 +45,7 @@ cp "${BWDIR}"/build-scripts/cfg/wine-tkg/wine-advanced-skylake.cfg "${BWDIR}"/re
 rm -rf "${BWDIR}"/reuse/git/wine-tkg-git/wine-tkg-git/customization.cfg
 cp "${BWDIR}"/build-scripts/cfg/wine-tkg/wine.cfg "${BWDIR}"/reuse/git/wine-tkg-git/wine-tkg-git/customization.cfg
 touch "${BWDIR}"/reuse/git/wine-tkg-git/wine-tkg-git/BIG_UGLY_FROGMINER
-makepkg -sfCc --noconfirm 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/wine-tkg-git/skylake || exit
+makepkg -sfCc --noconfirm 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/wine-tkg/skylake || exit
 
 git fetch --all
 git reset --hard origin/master
@@ -55,7 +55,7 @@ cp "${BWDIR}"/build-scripts/cfg/wine-tkg/wine-advanced-zen2.cfg "${BWDIR}"/reuse
 rm -rf "${BWDIR}"/reuse/git/wine-tkg-git/wine-tkg-git/customization.cfg
 cp "${BWDIR}"/build-scripts/cfg/wine-tkg/wine.cfg "${BWDIR}"/reuse/git/wine-tkg-git/wine-tkg-git/customization.cfg
 touch "${BWDIR}"/reuse/git/wine-tkg-git/wine-tkg-git/BIG_UGLY_FROGMINER
-makepkg -sfCc --noconfirm 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/wine-tkg-git/zen2 || exit
+makepkg -sfCc --noconfirm 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/wine-tkg/zen2 || exit
 
 cd "${BWDIR}" || exit
 
