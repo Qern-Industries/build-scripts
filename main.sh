@@ -1,5 +1,8 @@
 #!/usr/bin/bash
 
+cd ..
+BWDIR=$(pwd)
+
     if [[ $(cat "${BWDIR}/build-scripts/switches/debug" > /dev/null; echo $?) = 1 ]]; then
        :
     elif [[ $(cat "${BWDIR}/build-scripts/switches/debug" > /dev/null; echo $?) = 0 ]]; then
@@ -16,10 +19,8 @@
        echo "Unexpected condition, exiting." 
     fi     
 
-cd ..
-BWDIR=$(pwd)
-export BWDIR
 bash "${BWDIR}"/build-scripts/reuse/export-essential.sh
+export BWDIR
 
 while IFS= read -r _qi_build_arg; do
     export ${_qi_build_arg}
