@@ -19,8 +19,8 @@ BWDIR=$(pwd)
        echo "Unexpected condition, exiting." 
     fi     
 
-bash "${BWDIR}"/build-scripts/reuse/export-essential.sh
 export BWDIR
+bash "${BWDIR}"/build-scripts/reuse/export-essential.sh
 
 while IFS= read -r _qi_build_arg; do
     export ${_qi_build_arg}
