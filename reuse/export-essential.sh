@@ -1,11 +1,11 @@
 #!/usr/bin/bash
 
-    if [[ $(cat "${BWDIR}/build-scripts/switches/debug" > /dev/null; echo $?) = 1 ]]; then
+    if [[ $(cat "${BWDIR}/build-scripts/debug" > /dev/null; echo $?) = 1 ]]; then
        :
-    elif [[ $(cat "${BWDIR}/build-scripts/switches/debug" > /dev/null; echo $?) = 0 ]]; then
-         if [[ $(cat "${BWDIR}/build-scripts/switches/debug") = 0 ]]; then
+    elif [[ $(cat "${BWDIR}/build-scripts/debug" > /dev/null; echo $?) = 0 ]]; then
+         if [[ $(cat "${BWDIR}/build-scripts/debug") = 0 ]]; then
               :
-         elif [[ $(cat "${BWDIR}/build-scripts/switches/debug") = 1 ]]; then 
+         elif [[ $(cat "${BWDIR}/build-scripts/debug") = 1 ]]; then 
               echo "Debug enabled, setting -x."
               set -x
          else
