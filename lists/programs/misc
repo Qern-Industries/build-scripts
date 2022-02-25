@@ -42,6 +42,7 @@ python-colorthief
 python-gettext
 python-haishoku
 refind
+nvidia-xrun-git
 resvg
 rpi-imager
 rsyslog
