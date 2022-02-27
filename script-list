@@ -1,5 +1,5 @@
 _qi_act_fancy=Qern-Packages _qi_act_script=qern-packages _qi_act_switch=1
-_qi_act_fancy=Nvidia _qi_act_script=nvidia-tkg _qi_act_switch=0
+_qi_act_fancy=Nvidia _qi_act_script=nvidia-tkg _qi_act_switch=1
 _qi_act_fancy=Wine _qi_act_script=wine-tkg _qi_act_switch=1
 _qi_act_fancy=Proton _qi_act_script=proton-tkg _qi_act_switch=1
-_qi_act_fancy=Kernel _qi_act_script=linux-tkg _qi_act_switch=0
+_qi_act_fancy=Kernel _qi_act_script=linux-tkg _qi_act_switch=1
