@@ -122,4 +122,51 @@ nvidia-tkg () {
      makepkg -sfCc --noconfirm || exit
      cp "${BWDIR}"/reuse/git/nvidia-all/*.pkg.tar.zst ~/packages/
 }
+
+proton-tkg () {
+     while IFS= read -r _qi_wine_arg; do
+     export ${_qi_wine_arg}
+     touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/proton-tkg/${_qi_target_nice}"
+     rm -rf "${BWDIR}"/reuse/cfg/proton-tkg/ || true
+     mkdir -p "${BWDIR}"/reuse/{git,/cfg/proton-tkg} || true
+     cd "${BWDIR}"/reuse/git || exit
+     git clone https://github.com/Frogging-Family/wine-tkg-git/ || true
+     cd "${BWDIR}"/reuse/git/wine-tkg-git || exit
+     git fetch --all || exit
+     git reset --hard origin/master || exit
+     sudo pacman -S --noconfirm --needed schedtool || true
+     rm -rf "${BWDIR}/reuse/git/wine-tkg-git/wine-tkg-git/wine-tkg-profiles/{advanced-,}customization.cfg"
+     cp "${BWDIR}"/build-scripts/cfg/wine-tkg/wine.cfg "${BWDIR}"/reuse/git/wine-tkg-git/wine-tkg-git/customization.cfg
+     eval sed 's/GCCTUNE/${_qi_target_gcc}/g' "${BWDIR}/build-scripts/cfg/wine-tkg/wine-advanced.cfg" > "${BWDIR}/reuse/git/wine-tkg-git/wine-tkg-git/wine-tkg-profiles/advanced-customization.cfg"
+     rm -rf "${BWDIR}/reuse/git/wine-tkg-git/wine-tkg-git/proton-tkg/proton-tkg-profiles/{advanced-customization,proton-tkg}.cfg"
+     eval sed 's/GCCTUNE/${_qi_target_gcc}/g' "${BWDIR}/build-scripts/cfg/proton-tkg/proton-advanced.cfg" > "${BWDIR}/reuse/git/wine-tkg-git/proton-tkg/proton-tkg-profiles/advanced-customization.cfg"
+     cp "${BWDIR}"/build-scripts/cfg/proton-tkg/proton.cfg "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/proton-tkg.cfg
+     makepkg -sfCc --noconfirm 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/wine-tkg/${_qi_target_nice}" || exit
+     mv "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/*.pkg.tar.zst ~/packages/ || true
+     mv "${BWDIR}"/reuse/git/wine-tkg-git/wine-tkg-git/*.pkg.tar.zst ~/packages/ || true
+     done < "${BWDIR}/build-scripts/wine-targets"
+}
+
+wine-tkg () {
+     while IFS= read -r _qi_wine_arg; do
+     export ${_qi_wine_arg}
+     touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/wine-tkg/${_qi_target_nice}"
+     rm -rf "${BWDIR}"/reuse/cfg/wine-tkg/ || true
+     mkdir -p "${BWDIR}"/reuse/{git,/cfg/wine-tkg} || true
+     cd "${BWDIR}"/reuse/git || exit
+     git clone https://github.com/Frogging-Family/wine-tkg-git/ || true
+     cd "${BWDIR}"/reuse/git/wine-tkg-git || exit
+     git fetch --all || exit
+     git reset --hard origin/master || exit
+     sudo pacman -S --noconfirm --needed schedtool || true
+     rm -rf "${BWDIR}/reuse/git/wine-tkg-git/wine-tkg-git/wine-tkg-profiles/{advanced-,}customization.cfg"
+     cp "${BWDIR}"/build-scripts/cfg/wine-tkg/wine.cfg "${BWDIR}"/reuse/git/wine-tkg-git/wine-tkg-git/customization.cfg
+     eval sed 's/GCCTUNE/${_qi_target_gcc}/g' "${BWDIR}/build-scripts/cfg/wine-tkg/wine-advanced.cfg" > "${BWDIR}/reuse/git/wine-tkg-git/wine-tkg-git/wine-tkg-profiles/advanced-customization.cfg"
+     makepkg -sfCc --noconfirm 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/wine-tkg/${_qi_target_nice}" || exit
+     done < "${BWDIR}/build-scripts/wine-targets"
+}
+
+
+
 main "$@"; exit
+

@@ -1,0 +1,2 @@
+_qi_target_gcc=znver2 _qi_target_nice=zen2
+_qi_target_gcc=skylake _qi_target_nice=skylake
