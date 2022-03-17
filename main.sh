@@ -141,9 +141,10 @@ proton-tkg () {
      rm -rf "${BWDIR}/reuse/git/wine-tkg-git/wine-tkg-git/proton-tkg/proton-tkg-profiles/{advanced-customization,proton-tkg}.cfg"
      eval sed 's/GCCTUNE/${_qi_target_gcc}/g' "${BWDIR}/build-scripts/cfg/proton-tkg/proton-advanced.cfg" > "${BWDIR}/reuse/git/wine-tkg-git/proton-tkg/proton-tkg-profiles/advanced-customization.cfg"
      cp "${BWDIR}"/build-scripts/cfg/proton-tkg/proton.cfg "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/proton-tkg.cfg
+     cd "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/ || exit
+     eval sed -i 's/pkgname=proton-tkg-git/pkgname=proton-tkg-${_qi_target_nice}-qern/g' PKGBUILD
      makepkg -sfCc --noconfirm 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/wine-tkg/${_qi_target_nice}" || exit
      mv "${BWDIR}"/reuse/git/wine-tkg-git/proton-tkg/*.pkg.tar.zst ~/packages/ || true
-     mv "${BWDIR}"/reuse/git/wine-tkg-git/wine-tkg-git/*.pkg.tar.zst ~/packages/ || true
      done < "${BWDIR}/build-scripts/wine-targets"
 }
 
@@ -162,7 +163,9 @@ wine-tkg () {
      rm -rf "${BWDIR}/reuse/git/wine-tkg-git/wine-tkg-git/wine-tkg-profiles/{advanced-,}customization.cfg"
      cp "${BWDIR}"/build-scripts/cfg/wine-tkg/wine.cfg "${BWDIR}"/reuse/git/wine-tkg-git/wine-tkg-git/customization.cfg
      eval sed 's/GCCTUNE/${_qi_target_gcc}/g' "${BWDIR}/build-scripts/cfg/wine-tkg/wine-advanced.cfg" > "${BWDIR}/reuse/git/wine-tkg-git/wine-tkg-git/wine-tkg-profiles/advanced-customization.cfg"
+     cd "${BWDIR}"/reuse/git/wine-tkg-git/wine-tkg-git/ || exit
      makepkg -sfCc --noconfirm 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/wine-tkg/${_qi_target_nice}" || exit
+     mv "${BWDIR}"/reuse/git/wine-tkg-git/wine-tkg-git/*.pkg.tar.zst ~/packages/ || true
      done < "${BWDIR}/build-scripts/wine-targets"
 }
 
