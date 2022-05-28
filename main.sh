@@ -22,15 +22,15 @@ main () {
 
      while IFS= read -r _qi_build_arg; do
      export ${_qi_build_arg}
-     if [[ "${_qi_act_switch}" = 0 ]]; then
-               echo "Switch for $_qi_act_fancy disabled, not running."
-     else
+     if [[ "${_qi_act_switch}" = 1 ]]; then
                echo "Switch for $_qi_act_fancy enabled, running."
                pre-script
+     else
+               echo "Switch for $_qi_act_fancy disabled, not running."
      fi
      done < "${BWDIR}/build-scripts/script-list"
 
-     ccache -sv
+     ccache -sv 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/ccache
 
      touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/timeend || true
      date 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/timeend
@@ -41,7 +41,7 @@ main () {
 
      if cat "${BWDIR}/build-scripts/debug"; then
                     if [[ $(cat "${BWDIR}/build-scripts/debug") = 0 ]]; then
-                         cd ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}"/
+                         cd ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}"/ || exit
                          lrztar -L 9 -z ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/
                          cd "${BWDIR}" || exit
                          rm -rf ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/
