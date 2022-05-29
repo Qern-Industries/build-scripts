@@ -67,8 +67,8 @@ linux-tkg () {
      mkdir -p touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/${_qi_act_script}/"
      touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/linux-tkg/${_qi_lintkg_target}
      makepkg -s --noconfirm 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/linux-tkg/${_qi_lintkg_target} || exit
-     rm -rf "${BWDIR}"/work/ || true
      mv "${BWDIR}"/work/linux-tkg/*.pkg.tar.zst ~/packages/
+     rm -rf "${BWDIR}"/work/ || true
      done < "${BWDIR}/build-scripts/linux-targets"
 }
 
