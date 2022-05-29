@@ -4,7 +4,7 @@ main () {
      cd ..
      BWDIR=$(pwd)
 
-     mkdir -p ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/timeend
+     mkdir -p ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"
 
      set -e
 
@@ -41,6 +41,7 @@ main () {
 pre-script () {
      clean
      rm -rf "${BWDIR}"/work/ || true
+     mkdir -p touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/${_qi_act_script}/"
      touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/${_qi_act_script}/${_qi_act_script}" 
      time ${_qi_act_script} 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/${_qi_act_script}/${_qi_act_script}" || touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/${_qi_act_script}/failed"
      echo "${_qi_act_fancy} Complete"
@@ -63,6 +64,7 @@ linux-tkg () {
      cd "${BWDIR}/work/linux-tkg"
      sudo pacman -Syu --noconfirm --needed schedtool || true
      sed -i "s|_EXT_CONFIG_PATH=~/.config/frogminer/linux-tkg.cfg|_EXT_CONFIG_PATH=${BWDIR}/build-scripts/cfg/linux-tkg/${_qi_lintkg_target}.cfg|g" "${BWDIR}"/work/linux-tkg/customization.cfg || true
+     mkdir -p touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/${_qi_act_script}/"
      touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/linux-tkg/${_qi_lintkg_target}
      makepkg -s --noconfirm 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/linux-tkg/${_qi_lintkg_target} || exit
      rm -rf "${BWDIR}"/work/ || true
