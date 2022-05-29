@@ -17,14 +17,14 @@ main () {
      export BWDIR
 
      while IFS= read -r _qi_build_arg; do
-     export ${_qi_build_arg}
-     cd "${BWDIR}"
-     if [[ "${_qi_act_switch}" = 1 ]]; then
-          echo "Switch for $_qi_act_fancy enabled, running."
-          pre-script
-     else
-          echo "Switch for $_qi_act_fancy disabled, not running."
-     fi
+          export ${_qi_build_arg}
+          cd "${BWDIR}"
+          if [[ "${_qi_act_switch}" = 1 ]]; then
+               echo "Switch for $_qi_act_fancy enabled, running."
+               pre-script
+          else
+               echo "Switch for $_qi_act_fancy disabled, not running."
+          -fi
      done < "${BWDIR}/build-scripts/script-list"
 
      ccache -sv 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/ccache
@@ -43,7 +43,7 @@ pre-script () {
      rm -rf "${BWDIR}"/work/ || true
      mkdir -p touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/${_qi_act_script}/"
      touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/${_qi_act_script}/${_qi_act_script}" 
-     time ${_qi_act_script} 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/${_qi_act_script}/${_qi_act_script}" || touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/${_qi_act_script}/failed"
+     time ${_qi_act_script} 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/${_qi_act_script}/${_qi_act_script}" 
      echo "${_qi_act_fancy} Complete"
      if [[ "${_qi_act_script}" = qern-packages ]]; then
           echo "$_qern_act_fancy} detected. Not repo-adding."
@@ -81,10 +81,10 @@ qern-packages () {
 nvidia-tkg () {
      clean
      mkdir -p "${BWDIR}/work/"
+     cd "${BWDIR}/work/"
      git clone https://github.com/Frogging-Family/nvidia-all
-     cd "${BWDIR}"/nvidia-all || exit
+     cd "${BWDIR}"/work/nvidia-all || exit
      sed -i "s|_EXT_CONFIG_PATH=~/.config/frogminer/nvidia-all.cfg|_EXT_CONFIG_PATH=${BWDIR}/build-scripts/cfg/nvidia/nvidia.cfg|g" "${BWDIR}"/work/nvidia-all/customization.cfg || true
-     cd "${BWDIR}"/work/nvidia-all/
      makepkg -s --noconfirm
      mv "${BWDIR}"/work/nvidia-all/*.pkg.tar.zst ~/packages/
 }
