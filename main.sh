@@ -84,7 +84,7 @@ nvidia-tkg () {
      cd "${BWDIR}/work/"
      git clone https://github.com/Frogging-Family/nvidia-all
      cd "${BWDIR}"/work/nvidia-all || exit
-     sed -i "s|_EXT_CONFIG_PATH=~/.config/frogminer/nvidia-all.cfg|_EXT_CONFIG_PATH=${BWDIR}/build-scripts/cfg/nvidia/nvidia.cfg|g" "${BWDIR}"/work/nvidia-all/customization.cfg || true
+     sed -i "s|_EXT_CONFIG_PATH=~/.config/frogminer/nvidia-all.cfg|_EXT_CONFIG_PATH=${BWDIR}/build-scripts/cfg/nvidia-tkg/nvidia.cfg|g" "${BWDIR}"/work/nvidia-all/customization.cfg || true
      makepkg -s --noconfirm
      mv "${BWDIR}"/work/nvidia-all/*.pkg.tar.zst ~/packages/
 }
