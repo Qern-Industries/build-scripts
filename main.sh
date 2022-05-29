@@ -24,7 +24,7 @@ main () {
                pre-script
           else
                echo "Switch for $_qi_act_fancy disabled, not running."
-          -fi
+          fi
      done < "${BWDIR}/build-scripts/script-list"
 
      ccache -sv 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/ccache
