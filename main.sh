@@ -16,7 +16,7 @@ main () {
 
      export BWDIR
 
-     while IFS= read -r _qi_build_arg; do
+     while IFS='' read -r _qi_build_arg || [ "$_qi_build_arg"]; do
           export ${_qi_build_arg}
           cd "${BWDIR}"
           if [[ "${_qi_act_switch}" = 1 ]]; then
@@ -55,7 +55,7 @@ pre-script () {
 }
 
 linux-tkg () {
-     while IFS= read -r _qi_linux_arg; do
+     while IFS='' read -r _qi_linux_arg || [ "$_qi_linux_arg"]; do
      clean
      export ${_qi_linux_arg}
      rm -rf "${BWDIR}"/work/ || true
@@ -91,7 +91,7 @@ nvidia-tkg () {
 }
 
 proton-tkg () {
-     while IFS= read -r _qi_wine_arg; do
+     while IFS='' read -r _qi_proton_arg || [ "$_qi_proton_arg"]; do
      clean
      export ${_qi_wine_arg}
      touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/proton-tkg/${_qi_target_nice}"
@@ -110,7 +110,7 @@ proton-tkg () {
 }
 
 wine-tkg () {
-     while IFS= read -r _qi_wine_arg; do
+     while IFS='' read -r _qi_wine_arg || [ "$_qi_wine_arg"]; do
      clean
      export ${_qi_wine_arg}
      touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/wine-tkg/${_qi_target_nice}"
