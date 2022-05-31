@@ -55,7 +55,7 @@ pre-script () {
 }
 
 linux-tkg () {
-     while IFS='' read -r _qi_linux_arg || [ "$_qi_linux_arg"]; do
+     while IFS='' read -r _qi_linux_arg || [ "$_qi_linux_arg"] || true; do
           clean
           export ${_qi_linux_arg}
           if [[ "${_qi_act_switch}" = 1 ]]; then
