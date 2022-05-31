@@ -48,8 +48,8 @@ pre-script () {
      if [[ "${_qi_act_script}" = qern-packages ]]; then
           echo "$_qern_act_fancy} detected. Not repo-adding."
      else
-          rm -rf ~/packages/qern-packs.*
-          eval repo-add -n ~/packages/qern-packs.db.tar.gz ~/packages/*.pkg.tar.zst
+          #rm -rf ~/packages/qern-packs.*
+          #eval repo-add -n ~/packages/qern-packs.db.tar.gz ~/packages/*.pkg.tar.zst
      fi
 }
 
