@@ -50,6 +50,7 @@ pre-script () {
      else
           #rm -rf ~/packages/qern-packs.*
           #eval repo-add -n ~/packages/qern-packs.db.tar.gz ~/packages/*.pkg.tar.zst
+          :
      fi
 }
 
