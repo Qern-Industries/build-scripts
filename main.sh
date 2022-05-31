@@ -48,16 +48,26 @@ pre-script () {
      if [[ "${_qi_act_script}" = qern-packages ]]; then
           echo "$_qern_act_fancy} detected. Not repo-adding."
      else
-          #rm -rf ~/packages/qern-packs.*
-          #eval repo-add -n ~/packages/qern-packs.db.tar.gz ~/packages/*.pkg.tar.zst
+          rm -rf ~/packages/qern-packs.*
+          eval repo-add -n ~/packages/qern-packs.db.tar.gz ~/packages/*.pkg.tar.zst
           :
      fi
 }
 
 linux-tkg () {
      while IFS='' read -r _qi_linux_arg || [ "$_qi_linux_arg"]; do
-     clean
-     export ${_qi_linux_arg}
+          clean
+          export ${_qi_linux_arg}
+          if [[ "${_qi_act_switch}" = 1 ]]; then
+               echo "Switch for $_qi_lintkg_target enabled, running."
+               linux-tkg-build
+          else
+               echo "Switch for $_qi_lintkg_target disabled, not running."
+          fi
+     done < "${BWDIR}/build-scripts/linux-targets"
+}
+
+linux-tkg-build () {
      rm -rf "${BWDIR}"/work/ || true
      mkdir -p "${BWDIR}/work/"
      cd "${BWDIR}/work/"
@@ -67,10 +77,9 @@ linux-tkg () {
      sed -i "s|_EXT_CONFIG_PATH=~/.config/frogminer/linux-tkg.cfg|_EXT_CONFIG_PATH=${BWDIR}/build-scripts/cfg/linux-tkg/${_qi_lintkg_target}.cfg|g" "${BWDIR}"/work/linux-tkg/customization.cfg || true
      mkdir -p touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/${_qi_act_script}/"
      touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/linux-tkg/${_qi_lintkg_target}
-     #makepkg -s --noconfirm 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/linux-tkg/${_qi_lintkg_target} || exit
-     #mv "${BWDIR}"/work/linux-tkg/*.pkg.tar.zst ~/packages/
+     makepkg -s --noconfirm 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}"/linux-tkg/${_qi_lintkg_target} || exit
+     mv "${BWDIR}"/work/linux-tkg/*.pkg.tar.zst ~/packages/
      rm -rf "${BWDIR}"/work/ || true
-     done < "${BWDIR}/build-scripts/linux-targets"
 }
 
 qern-packages () {

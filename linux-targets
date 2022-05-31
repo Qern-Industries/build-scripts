@@ -1,2 +1,4 @@
-_qi_lintkg_target=desktop-skylake
-_qi_lintkg_target=laptop-zen2
+_qi_lintkg_target=desktop-skylake _qi_act_switch=0
+_qi_lintkg_target=laptop-zen2 _qi_act_switch=1
+_qi_lintkg_target=desktop-zen2 _qi_act_switch=0
+
