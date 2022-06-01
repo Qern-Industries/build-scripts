@@ -39,14 +39,14 @@ main () {
 }
 
 pre-script () {
-     clean
+     
      rm -rf "${BWDIR}"/work/ || true
      mkdir -p touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/${_qi_act_script}/"
      touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/${_qi_act_script}/${_qi_act_script}" 
      time ${_qi_act_script} 2>&1 | tee -a ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/${_qi_act_script}/${_qi_act_script}" 
      echo "${_qi_act_fancy} Complete"
      if [[ "${_qi_act_script}" = qern-packages ]]; then
-          echo "$_qern_act_fancy} detected. Not repo-adding."
+          echo "{$_qern_act_fancy} detected. Not repo-adding."
      else
           rm -rf ~/packages/qern-packs.*
           eval repo-add -n ~/packages/qern-packs.db.tar.gz ~/packages/*.pkg.tar.zst
@@ -59,7 +59,6 @@ linux-tkg () {
           export ${_qi_linux_arg}
           if [[ "${_qi_act_switch}" = 1 ]]; then
                echo "Switch for $_qi_lintkg_target enabled, running."
-               clean
                linux-tkg-build
           else
                echo "Switch for $_qi_lintkg_target disabled, not running."
@@ -68,6 +67,7 @@ linux-tkg () {
 }
 
 linux-tkg-build () {
+     
      rm -rf "${BWDIR}"/work/ || true
      mkdir -p "${BWDIR}/work/"
      cd "${BWDIR}/work/"
@@ -83,13 +83,12 @@ linux-tkg-build () {
 }
 
 qern-packages () {
-     clean
+     
      sudo pacman -Syu --noconfirm
      date; time aur sync -uT --no-view --margs --asdeps,--needed,--noconfirm,--noprogressbar,-C,-c,-s,-r "$(cat ${BWDIR}/build-scripts/lists/*/*)" || exit
 }
 
 nvidia-tkg () {
-     clean
      mkdir -p "${BWDIR}/work/"
      cd "${BWDIR}/work/"
      git clone https://github.com/Frogging-Family/nvidia-all
@@ -101,7 +100,7 @@ nvidia-tkg () {
 
 proton-tkg () {
      while IFS= read -r _qi_proton_arg; do
-     clean
+     
      export ${_qi_wine_arg}
      touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/proton-tkg/${_qi_target_nice}"
      rm -rf "${BWDIR}"/work/ || true
@@ -120,7 +119,7 @@ proton-tkg () {
 
 wine-tkg () {
      while IFS= read -r _qi_wine_arg; do
-     clean
+     
      export ${_qi_wine_arg}
      touch ~/packages/cronlog/"${_qi_build_year}/${_qi_build_month}/${_qi_build_day}/${_qi_build_time}/wine-tkg/${_qi_target_nice}"
      rm -rf "${BWDIR}"/work/ || true
@@ -134,9 +133,4 @@ wine-tkg () {
      mv "${BWDIR}"/work/wine-tkg-git/wine-tkg-git/*.pkg.tar.zst ~/packages/ || true
      done < "${BWDIR}/build-scripts/wine-targets"
 }
-
-clean () {
-     sudo rm -rf /tmp/*
-}
-
 main; exit
