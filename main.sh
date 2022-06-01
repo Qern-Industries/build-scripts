@@ -56,10 +56,10 @@ pre-script () {
 
 linux-tkg () {
      while IFS='' read -r _qi_linux_arg || [ "$_qi_linux_arg"] || true; do
-          clean
           export ${_qi_linux_arg}
           if [[ "${_qi_act_switch}" = 1 ]]; then
                echo "Switch for $_qi_lintkg_target enabled, running."
+               clean
                linux-tkg-build
           else
                echo "Switch for $_qi_lintkg_target disabled, not running."
